@@ -11,20 +11,18 @@ import { Accordion } from 'react-bootstrap';
 
 const FlightStatusDisplay = ({ flightsList }) => {
   let { direct, multiple } = flightsList;
-  const drawAccordion = (data = [{}], index = 0) => {
+  const drawAccordion = (data = [], index = 0) => {
+    let { overview, origin, destination } = data;
+
     return (
-      <StyledAccordion key={index}>
+      <StyledAccordion key={`${index} overview`}>
         <Accordion.Toggle variant="link" eventKey={index}>
-          <FlightResult
-            key={index}
-            {...data[2].overview}
-            accordionFlag={true}
-          />
+          <FlightResult key={index} {...overview} accordionFlag={true} />
         </Accordion.Toggle>
         <Accordion.Collapse eventKey={index}>
           <Fragment>
-            <FlightResult key={index} {...data[0].origin} />
-            <FlightResult key={index} {...data[1].destination} />
+            <FlightResult key={`${index} origin`} {...origin} />
+            <FlightResult key={`${index} destination`} {...destination} />
           </Fragment>
         </Accordion.Collapse>
       </StyledAccordion>

@@ -72,32 +72,60 @@ export const findMultiAirline = async (
     ({ destination, origin }) =>
       origin === originAirport && destination !== destinationAirport
   );
-  let count = 0;
+
   let overview = {};
   for (let originPlace of origins) {
     for (let destPlace of destinations) {
       if (originPlace['destination'] === destPlace['origin']) {
-        multiAirObject[count] = [{ origin: originPlace }];
-        multiAirObject[count].push({ destination: destPlace });
-
-        overview['name'] = 'Multiple';
-        overview['origin'] = originPlace['origin'];
-        overview['destination'] = destPlace['destination'];
-        overview['departureTime'] = originPlace['departureTime'];
-        overview['arrivalTime'] = destPlace['arrivalTime'];
-        let originTime =
-          originPlace['date'] + ' ' + originPlace['departureTime'];
-        let destTime = destPlace['date'] + ' ' + destPlace['arrivalTime'];
-
-        overview['duration'] = calculateTimeDifference(destTime, originTime);
-        console.log(overview['duration']);
-        overview['price'] =
-          parseInt(originPlace['price']) + parseInt(destPlace['price']);
-        multiAirObject[count].push({ overview });
-        count += 1;
+        /** LOGIC to add first into the array, then check if it exists, check if its already added in the array, if not add it */
+        if (multiAirObject.length === 0) {
+          multiAirObject = createMultiAirObject(
+            {},
+            destPlace,
+            originPlace,
+            multiAirObject
+          );
+        } else {
+          for (let object of multiAirObject) {
+            if (!object.overview.code === overview.code) {
+              multiAirObject = createMultiAirObject(
+                {},
+                destPlace,
+                originPlace,
+                multiAirObject
+              );
+            }
+          }
+        }
       }
     }
   }
+  return multiAirObject;
+};
 
+const createMultiAirObject = (
+  overview = {},
+  destPlace,
+  originPlace,
+  multiAirObject
+) => {
+  overview['name'] = 'Multiple';
+  overview['code'] = originPlace['origin'] + destPlace['origin'];
+  overview['origin'] = originPlace['origin'];
+  overview['destination'] = destPlace['destination'];
+  overview['departureTime'] = originPlace['departureTime'];
+  overview['arrivalTime'] = destPlace['arrivalTime'];
+  let originTime = originPlace['date'] + ' ' + originPlace['departureTime'];
+  let destTime = destPlace['date'] + ' ' + destPlace['arrivalTime'];
+
+  overview['duration'] = calculateTimeDifference(originTime, destTime);
+
+  overview['price'] =
+    parseInt(originPlace['price']) + parseInt(destPlace['price']);
+  multiAirObject.push({
+    destination: destPlace,
+    origin: originPlace,
+    overview,
+  });
   return multiAirObject;
 };
