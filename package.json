@@ -2,11 +2,13 @@
   "name": "flightsearchapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.5.0",
+    "concurrently": "^5.2.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.5.0",
     "express": "^4.17.1",
@@ -22,7 +24,9 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "client": "react-scripts start",
+    "server": "node server/server.js",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
