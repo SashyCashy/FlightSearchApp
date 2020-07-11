@@ -10,7 +10,7 @@ import RightPane from './RightPane';
 import LoaderIcon from '../../app/assets/spinner';
 import styled from 'styled-components';
 
-import { fetchCustomerList } from '../../util';
+import { fetchCustomerList, fetchCustomer } from '../../util';
 
 const Content = () => {
   const [waitingStatus, setWaitingStatus] = useState(false);
@@ -28,18 +28,14 @@ const Content = () => {
     fetchData();
   }, [customerList.length]);
 
-  const makeDataRequest = (filterId) => {
+  const makeDataRequest = async (id) => {
     setWaitingStatus(true);
-    let filteredCustomer = customerList.find(({ id }) => id === filterId);
-    if (filteredCustomer !== undefined) {
-      //let { address } = filteredCustomer;
-      setCustomerDetails(filteredCustomer);
-      //else if (address.length === 0) setCustomerDetails(['No address found']);
-    }
+    let { filteredRecord } = await fetchCustomer(id);
 
     setTimeout(() => {
       setWaitingStatus(false);
-    }, 2000);
+      setCustomerDetails(filteredRecord);
+    }, 3000);
   };
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import LeftPane from '../LeftPane';
 import { fetchCustomerList } from '../../../util';
 import mock from '../../../../../public/mock.json';

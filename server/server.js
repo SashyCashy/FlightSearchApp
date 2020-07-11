@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 });*/
 //}
 
-app.get('/api/customers', async (req, res) => {
+app.get('/api/customers', (req, res) => {
   const dataPath = './server/json/customer.json';
   fs.readFile(dataPath, 'utf8', (err, data) => {
     if (err) {
@@ -28,15 +28,16 @@ app.get('/api/customers', async (req, res) => {
   });
 });
 
-app.get('/api/customer/:id', async (req, res) => {
+app.use('/api/user/:id', (req, res, next) => {
   const dataPath = './server/json/customer.json';
-  console.log(req.params.id);
+
   fs.readFile(dataPath, 'utf8', (err, data) => {
     if (err) {
       throw err;
     }
-
-    res.send(JSON.parse(data));
+    data = JSON.parse(data);
+    let filteredRecord = data.find((item) => item.id == req.params.id);
+    res.send({ filteredRecord });
   });
 });
 app.listen(port, (req, res) => {
