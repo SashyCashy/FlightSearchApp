@@ -30,7 +30,7 @@
     "server": "nodemon server/server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "engines": {
     "npm": "6.13.4",
