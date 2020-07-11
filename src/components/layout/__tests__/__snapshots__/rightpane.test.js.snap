@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fetch data for right pane  Check if the values are being fetched or not  1`] = `
+<div
+  className="sc-AxjAm eWrtAF"
+  id="right-pane__container"
+>
+  <div
+    className="sc-AxirZ QTrgE card"
+  >
+    <div
+      className="card-body"
+    >
+      <div
+        className="card-title h5"
+      >
+        James Cameroon
+      </div>
+      <img
+        className="card-img"
+        src="male.png"
+      />
+      <p
+        className="card-text"
+      >
+        Maya Linda Rd San Diego CA 92126
+      </p>
+    </div>
+  </div>
+</div>
+`;

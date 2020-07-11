@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import LeftPane from '../LeftPane';
 import { fetchCustomerList } from '../../../util';
-import mock from '../../../../../public/mock.json';
+import mock from '../../../../public/mock.json';
 beforeEach(() => {
   fetch.resetMocks();
 });
@@ -13,7 +13,7 @@ describe('Fetch data for left pane ', () => {
 
     let customerList = await fetchCustomerList();
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith(`customer.json`);
+    expect(fetch).toHaveBeenCalledWith(`/api/customers`);
     expect(customerList).not.toBeNull();
     expect(customerList).toHaveLength(11);
   });
@@ -23,7 +23,7 @@ describe('Fetch data for left pane ', () => {
 
     let customerList = await fetchCustomerList();
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith(`customer.json`);
+    expect(fetch).toHaveBeenCalledWith(`/api/customers`);
     const mockCallback = jest.fn((x) => 42 + x);
     const wrapper = mount(
       <LeftPane
