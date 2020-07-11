@@ -1,12 +1,14 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const publicPath = path.join(__dirname, '..', 'public');
-const port = process.env.PORT || 8080;
-app.use(express.static(publicPath));
-app.get('/', (req, res) => {
-  res.render('index.html');
+const port = process.env.PORT || 5000;
+
+//Static file declaration
+app.use(express.static(path.join(__dirname, '..', 'build')));
+app.get('*', (req, res) => {
+  res.sendfile(path.join((__dirname = '/build/index.html')));
 });
-app.listen(port, () => {
-  console.log('Server is up!');
+
+app.listen(port, (req, res) => {
+  console.log(`server listening on port: ${port}`);
 });

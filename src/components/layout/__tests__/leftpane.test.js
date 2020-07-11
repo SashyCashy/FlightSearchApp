@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import LeftPane from '../LeftPane';
 import { fetchCustomerList } from '../../../util';
-import mock from '../../../../public/mock.json';
+import mock from '../../../../../public/mock.json';
 beforeEach(() => {
   fetch.resetMocks();
 });

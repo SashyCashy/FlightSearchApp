@@ -2,7 +2,7 @@
   "name": "flightsearchapp",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:6000",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -14,6 +14,7 @@
     "express": "^4.17.1",
     "jest-fetch-mock": "^3.0.3",
     "moment": "^2.27.0",
+    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-bootstrap-typeahead": "^5.1.0",
@@ -24,12 +25,12 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node src/index.js",
+    "server": "nodemon server/server.js",
     "client": "react-scripts start",
-    "server": "node server/server.js",
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "engines": {
     "npm": "6.13.4",
