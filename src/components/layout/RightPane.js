@@ -1,40 +1,79 @@
 /**
- * File Description: This component is the right pane of the website to display the results of search
+ * File Description: This component is the right pane of the website to display the results of customer
  * Author(s): Sashank Pindiproli
- * Date of Creation: 02/02/2020
+ * Date of Creation: 11/07/2020
  */
 
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
-import FlightStatus from '../common/Status';
-import FlightStatusDisplay from './FlightStatus/FlightStatusDisplay';
+import PropTypes from 'prop-types';
 
-const RightPane = ({ to, from, fromDate, flightsList = [] }) => {
-  let { direct, multiple } = flightsList;
-  let count =
-    direct !== undefined && multiple !== undefined
-      ? direct.length + multiple.length
-      : 0;
+const RightPane = ({ customerDetails }) => {
+  let { name, address, image } = customerDetails;
+  if (name !== undefined && address.length === 0)
+    address.push('No address found');
   return (
     <StyledContainer id="right-pane__container">
-      <FlightStatus
-        flightsCount={count}
-        to={to}
-        from={from}
-        travelDate={fromDate}
-      />
-
-      {count > 0 ? <FlightStatusDisplay flightsList={flightsList} /> : null}
+      {name !== undefined && image !== undefined ? (
+        <StyledCard>
+          <Card.Body>
+            <Card.Title>{name}</Card.Title>
+            <Card.Img src={image}></Card.Img>
+            {address.map((item, index) => (
+              <Card.Text key={index}>{item}</Card.Text>
+            ))}
+          </Card.Body>
+        </StyledCard>
+      ) : null}
     </StyledContainer>
   );
 };
 
 const StyledContainer = styled.div`
-  border: 2px solid black;
-  width: calc(84.2%);
+  width: calc(59.1%);
   margin-left: 1vh;
   margin-top: 0.5vh;
-  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #78e3fd;
 `;
 
+const StyledCard = styled(Card)`
+  height: 40em;
+  width: 40em;
+
+  .card-title {
+    font-size: 32px;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-img {
+    width: 25em;
+  }
+  .card-text {
+    height: 3em;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+RightPane.propTypes = {
+  customerDetails: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  address: PropTypes.array.isRequired,
+};
+
+RightPane.defaultProps = {
+  customerDetails: {},
+  name: '',
+  image: '',
+  address: [],
+};
 export default RightPane;

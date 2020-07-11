@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout />  Check the layout structure  1`] = `
+<styled.div
+  id="app__container"
+>
+  <LeftPane
+    customerList={Array []}
+    makeDataRequest={[Function]}
+  />
+  <RightPane
+    address={Array []}
+    customerDetails={Object {}}
+    image=""
+    name=""
+  />
+</styled.div>
+`;

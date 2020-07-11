@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fetch data for left pane  Check if the values are being fetched or not  1`] = `
+<div
+  className="sc-AxjAm ibklLD"
+  id="left-pane__container"
+>
+  <ul
+    className="list-group"
+    onKeyDown={[Function]}
+  >
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        1
+      </div>
+      <div>
+        Carrie Grabowski
+      </div>
+      <div>
+        30
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        2
+      </div>
+      <div>
+        James Cameroon
+      </div>
+      <div>
+        24
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        3
+      </div>
+      <div>
+        Alaleh Baghini
+      </div>
+      <div>
+        39
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        4
+      </div>
+      <div>
+        Jimit Patel
+      </div>
+      <div>
+        35
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        5
+      </div>
+      <div>
+        Norif Takaya
+      </div>
+      <div>
+        42
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        6
+      </div>
+      <div>
+        Carrie Grabowski
+      </div>
+      <div>
+        30
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        7
+      </div>
+      <div>
+        James Cameroon
+      </div>
+      <div>
+        24
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        8
+      </div>
+      <div>
+        Alaleh Baghini
+      </div>
+      <div>
+        39
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        9
+      </div>
+      <div>
+        Jimit Patel
+      </div>
+      <div>
+        35
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        10
+      </div>
+      <div>
+        Norif Takaya
+      </div>
+      <div>
+        42
+      </div>
+    </li>
+    <li
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div>
+        11
+      </div>
+      <div>
+        Carrie Grabowski
+      </div>
+      <div>
+        30
+      </div>
+    </li>
+  </ul>
+</div>
+`;

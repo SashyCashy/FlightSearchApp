@@ -1,31 +1,44 @@
 /**
  * File Description: This component is navbar that gets displayed on the top of the screen
  * Author(s): Sashank Pindiproli
- * Date of Creation: 02/02/2020
+ * Date of Creation: 11/07/2020
  */
 import React from 'react';
 import styled from 'styled-components';
-const Navbar = () => {
-  const NAVBAR_TITLE = 'Flight Search App';
+import PropTypes from 'prop-types';
 
+const Navbar = ({ navbarTitle }) => {
   return (
     <StyledContainer>
-      <StyledLabel>{NAVBAR_TITLE}</StyledLabel>
+      <StyledLabel>{navbarTitle}</StyledLabel>
     </StyledContainer>
   );
 };
 
 const StyledContainer = styled.div`
-  height: 5vh;
-  border: 2px solid black;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
 `;
 
 const StyledLabel = styled.div`
   font-size: 24px;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   margin: 10px;
+  font-weight: bold;
+  color: white;
 `;
+
+Navbar.propTypes = {
+  navbarTitle: PropTypes.string.isRequired,
+};
+
+Navbar.defaultProps = {
+  navbarTitle: 'Customer Details',
+};
 
 export default Navbar;
