@@ -10,12 +10,12 @@ const fs = require('fs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //production mode
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '..', 'build')));
-  app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname + '/build/index.html'));
-  });
-}
+//if (process.env.NODE_ENV === 'production') {
+app.use(express.static(path.join(__dirname, '..', 'build')));
+app.get('*', (req, res) => {
+  res.sendfile(path.join(__dirname + '/build/index.html'));
+});
+//}
 
 app.get('/api/customers', async (req, res) => {
   const dataPath = './server/json/customer.json';
@@ -30,7 +30,7 @@ app.get('/api/customers', async (req, res) => {
 
 app.get('/api/customer/:id', async (req, res) => {
   const dataPath = './server/json/customer.json';
-  console.log(id);
+  console.log(req.params.id);
   fs.readFile(dataPath, 'utf8', (err, data) => {
     if (err) {
       throw err;
